@@ -1,8 +1,8 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Playfair_Display, Montserrat, Caveat } from 'next/font/google';
-// import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/toaster';
+import { Analytics } from "@vercel/analytics/react"
 
 const montserrat = Montserrat({ 
   subsets: ['latin'], 
@@ -31,6 +31,7 @@ export default function RootLayout({
       <body className={`${montserrat.variable} ${playfair.variable} ${caveat.variable} font-sans antialiased`}>
           {children}
           <Toaster />
+          <Analytics />
       </body>
     </html>
   );
