@@ -26,7 +26,7 @@ export async function POST(request: Request) {
 
     const data = await resend.emails.send({
       from: 'Owens Academy <contact@owensacademy.org>',
-      to: ['bradleymccourt@live.com'],
+      to: ['owensacademy@hotmail.com'],
       subject: 'New Dance Inquiry',
       html: `
         <h2>New Inquiry from ${name}</h2>
