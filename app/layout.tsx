@@ -4,6 +4,7 @@ import { Playfair_Display, Montserrat, Caveat } from 'next/font/google';
 import { Toaster } from '@/components/ui/toaster';
 import { Analytics } from "@vercel/analytics/react"
 
+
 const montserrat = Montserrat({ 
   subsets: ['latin'], 
   variable: '--font-montserrat',
