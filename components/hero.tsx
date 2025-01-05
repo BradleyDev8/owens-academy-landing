@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from '@/components/ui/button';
-import irishDance from '@/public/irishDance.png';
+import OwensAcademy4 from '@/public/images/OwensAcademy4.jpeg';
 import Image from 'next/image';
 import {
   Dialog,
@@ -25,11 +25,11 @@ const Hero = () => {
   return (
     <section id="hero" className="relative h-screen flex items-center justify-center">
       <Image
-        src={irishDance}
+        src={OwensAcademy4}
         alt="Irish Dancing Background"
         fill
         priority
-        className="object-cover z-0"
+        className="object-cover z-0 md:object-[center_25%] lg:object-[center_20%]"
         quality={100}
       />
       <div className="absolute inset-0 hero-gradient z-[1]"></div>

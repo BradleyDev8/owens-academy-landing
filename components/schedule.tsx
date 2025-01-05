@@ -26,7 +26,7 @@ const Schedule = () => {
   ];
 
   return (
-    <section id="schedule" className="py-12 md:py-20 bg-gray-50">
+    <section id="schedule" className="py-12 md:py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="font-montserrat text-4xl font-bold mb-4">Class Schedule</h2>
