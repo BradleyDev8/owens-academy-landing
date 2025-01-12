@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from '@/components/ui/button';
-import OwensAcademy4 from '@/public/images/OwensAcademy4.jpeg';
+import OwensCover from '@/public/images/OwensCover.jpg';
 import Image from 'next/image';
 import {
   Dialog,
@@ -25,7 +25,7 @@ const Hero = () => {
   return (
     <section id="hero" className="relative h-screen flex items-center justify-center">
       <Image
-        src={OwensAcademy4}
+        src={OwensCover}
         alt="Irish Dancing Background"
         fill
         priority
