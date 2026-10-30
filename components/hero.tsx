@@ -1,66 +1,53 @@
-"use client";
-
-import { Button } from '@/components/ui/button';
-import OwensCover from '@/public/images/OwensCover.jpg';
 import Image from 'next/image';
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-} from '@/components/ui/dialog';
-import { useState } from 'react';
-import { InquiryForm } from '@/components/inquiry-form';
+import { ArrowDown } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { InquiryDialog } from '@/components/inquiry-dialog';
+import OwensCover from '@/public/images/OwensCover.jpg';
 
 const Hero = () => {
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-
-  const handleClick = () => {
-
-    // Open dialog
-    setIsDialogOpen(true);
-  };
-
   return (
-    <section id="hero" className="relative h-screen flex items-center justify-center">
-      <Image
-        src={OwensCover}
-        alt="Irish Dancing Background"
-        fill
-        priority
-        className="object-cover z-0 md:object-[center_25%] lg:object-[center_20%]"
-        quality={100}
-      />
-      <div className="absolute inset-0 hero-gradient z-[1]"></div>
-      <div className="relative z-10 text-center text-white px-4">
-        <h1 className="font-montserrat text-5xl md:text-7xl font-bold mb-6">
-          Welcome to Owens Academy
-        </h1>
-        <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
-          Experience the magic of Irish dance through tradition, passion, and excellence
-        </p>
-        <Button 
-          variant="destructive" 
-          size="lg" 
-          className="text-lg px-8 transform transition-all duration-300 hover:scale-110 hover:shadow-lg button-glow"
-          onClick={handleClick}
-        >
-          Start Your Dance Journey
-        </Button>
-      </div>
+    <section id="hero" className="overflow-hidden bg-stage text-stage-foreground">
+      <div className="mx-auto max-w-6xl px-6 pt-16 md:pt-24">
+        <div className="max-w-3xl">
+          <p className="flex items-center gap-3 text-sm text-stage-muted">
+            <span aria-hidden className="h-0.5 w-6 bg-primary" />
+            Taught by Christopher Owens TCRG
+          </p>
+          <h1 className="mt-6 font-display text-[2.75rem] leading-[1.04] tracking-[-0.02em] text-balance md:text-6xl lg:text-7xl lg:tracking-[-0.03em]">
+            Irish dance from Primary One to championship level
+          </h1>
+          <p className="mt-6 max-w-xl text-lg leading-7 text-stage-muted">
+            Weekly classes in Downpatrick and Saintfield for boys and girls, whether they dance for fun or to compete.
+          </p>
+          <div className="mt-10 flex flex-wrap items-center gap-2">
+            <InquiryDialog>
+              <Button size="lg" className="h-12 px-4 text-base sm:px-5">
+                Ask about classes
+              </Button>
+            </InquiryDialog>
+            <Button
+              asChild
+              variant="ghost"
+              size="lg"
+              className="h-12 px-3 text-base text-stage-foreground hover:bg-white/8 hover:text-stage-foreground has-[>svg]:px-3"
+            >
+              <a href="#schedule">
+                View timetable
+                <ArrowDown className="size-4" strokeWidth={1.5} />
+              </a>
+            </Button>
+          </div>
+        </div>
 
-      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogContent className="sm:max-w-[425px]">
-          <DialogHeader>
-            <DialogTitle className="text-xl font-playfair">Start Your Dance Journey</DialogTitle>
-            <DialogDescription className="pt-2">
-              Fill out this quick form and we&apos;ll get back to you about starting your Irish dance journey.
-            </DialogDescription>
-          </DialogHeader>
-          <InquiryForm onSuccess={() => setIsDialogOpen(false)} />
-        </DialogContent>
-      </Dialog>
+        <Image
+          src={OwensCover}
+          alt="Five dancers mid-jump in white socks and black hard shoes"
+          priority
+          placeholder="blur"
+          sizes="(min-width: 1152px) 1104px, 100vw"
+          className="mt-16 aspect-[16/9] w-full rounded-t-2xl object-cover md:mt-20 md:aspect-auto"
+        />
+      </div>
     </section>
   );
 };

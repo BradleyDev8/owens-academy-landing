@@ -1,64 +1,63 @@
-import { Award, Users, Star } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
+import { CalendarHeart, GraduationCap, Trophy, Users } from 'lucide-react';
+import { SectionHeading } from '@/components/section-heading';
+
+const facts = [
+  {
+    icon: Users,
+    title: 'From Primary One',
+    description: 'Boys and girls are welcome from Primary One, for recreation or competition',
+  },
+  {
+    icon: Trophy,
+    title: 'Competitions and shows',
+    description:
+      'Dancers take part in local class competitions, regional competitions and international major championships, and dance at shows and displays',
+  },
+  {
+    icon: GraduationCap,
+    title: 'Grade examinations',
+    description: 'Dancers are prepared for grade exams as formal certification of their progress',
+  },
+  {
+    icon: CalendarHeart,
+    title: 'More than dancing',
+    description: 'Non-dancing events through the year give dancers time to unwind and socialise',
+  },
+];
 
 const About = () => {
-  const features = [
-    {
-      icon: <Award className="h-8 w-8 text-red-600" />,
-      title: 'Expert Instruction',
-      description: 'Learn from a certified TCRG',
-    },
-    {
-      icon: <Users className="h-8 w-8 text-red-600" />,
-      title: 'All Levels Welcome',
-      description: 'Classes for beginners to championship level dancers',
-    },
-    {
-      icon: <Star className="h-8 w-8 text-red-600" />,
-      title: 'Competition Success',
-      description: 'Award-winning dancers and regular competition achievements',
-    },
-  ];
-
   return (
-    <section id="about" className="py-12 md:py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="font-montserrat text-4xl font-bold mb-6">
-              Celebrating Irish Dance Excellence Since 2023
-            </h2>
-            <p className="text-gray-600 mb-6">
-            The Owens Academy of Irish dance was established in 2023 by Christopher Owens TCRG, a fully qualified teacher with An Coimisiún Le Rincí Gaelacha - the world&apos;s leading Irish dancing organisation.
+    <section id="about" className="py-24 md:py-32">
+      <div className="mx-auto grid max-w-6xl gap-12 px-6 md:grid-cols-2 md:gap-16">
+        <div>
+          <SectionHeading eyebrow="About the academy" title="Teaching Irish dance in Downpatrick since 2023" />
+          <div className="mt-6 space-y-4 text-base leading-7 text-muted-foreground">
+            <p>
+              The Owens Academy of Irish dance was established in 2023 by Christopher Owens TCRG, a fully qualified
+              teacher with An Coimisiún Le Rincí Gaelacha, the world&apos;s leading Irish dancing organisation.
             </p>
-            <p className="text-gray-600 mb-6">
-            Boys and girls who are in Primary One are welcome for recreation or competition. Classes are held in Downpatrick and Saintfield on a weekly basis.
+            <p>
+              We teach everything from basic steps right up to World Championship level choreography, with classes in
+              Downpatrick and Saintfield every week.
             </p>
-            <p className="text-gray-600 mb-6">
-            At the Owens Academy, we are committed to the growth and education of our students whereby basic steps are taught right up to World Championship level choreography. Dancers have taken part in local class competitions, regional competitions and international major championships. Dancers have opportunities to dance at shows and displays. Dancers are prepared for grade examinations as formal certification of their dancing progress.
+            <p>
+              The academy aims to instil a passion for dance while promoting positive mental health, physical activity,
+              culture, confidence and social skills.
             </p>
-            <p className="text-gray-600 mb-6">
-            The Owens Academy seeks to promote positive mental health and hold non-dancing events throughout the year for the dancers to unwind and socialise.
-            </p>
-            <p className="text-gray-600 mb-6">
-            The Owens Academy of Irish dance aims to instill a passion for dance within our students as well as promoting physical activity, culture, confidence and social skills.
-            </p>
-          </div>
-
-          <div className="grid gap-6">
-            {features.map((feature, index) => (
-              <Card key={index}>
-                <CardContent className="flex items-start p-6">
-                  <div className="mr-4">{feature.icon}</div>
-                  <div>
-                    <h3 className="font-bold mb-2">{feature.title}</h3>
-                    <p className="text-gray-600">{feature.description}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
           </div>
         </div>
+
+        <dl className="divide-y divide-border self-start border-y border-border">
+          {facts.map((fact) => (
+            <div key={fact.title} className="flex gap-4 py-6">
+              <fact.icon aria-hidden className="mt-0.5 size-5 shrink-0 text-faint" strokeWidth={1.5} />
+              <div>
+                <dt className="text-base font-medium">{fact.title}</dt>
+                <dd className="mt-1 text-base leading-6 text-muted-foreground">{fact.description}</dd>
+              </div>
+            </div>
+          ))}
+        </dl>
       </div>
     </section>
   );
