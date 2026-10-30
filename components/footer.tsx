@@ -1,59 +1,30 @@
+const links = [
+  { name: 'About', href: '#about' },
+  { name: 'Timetable', href: '#schedule' },
+  { name: 'Gallery', href: '#gallery' },
+  { name: 'Contact', href: '#contact' },
+];
+
 const Footer = () => {
   return (
-    <footer className="bg-black text-white py-8">
-      <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-3 gap-8">
-          <div>
-            <h3 className="font-montserrat text-xl font-bold mb-4">Owens Academy</h3>
-            <p className="text-gray-400">
-              Preserving Irish dance tradition through excellence in teaching and
-              performance.
-            </p>
-          </div>
-          <div>
-            <h3 className="font-bold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a href="#about" className="text-gray-400 hover:text-white">
-                  About
-                </a>
-              </li>
-              <li>
-                <a href="#schedule" className="text-gray-400 hover:text-white">
-                  Schedule
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="text-gray-400 hover:text-white">
-                  Contact
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="font-bold mb-4">Legal</h3>
-            <ul className="space-y-2">
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white">
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white">
-                  Terms of Service
-                </a>
-              </li>
-            </ul>
-          </div>
+    <footer className="bg-stage py-12 text-sm text-stage-muted">
+      <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 md:flex-row md:items-start md:justify-between">
+        <div>
+          <p className="text-base font-medium text-stage-foreground">Owens Academy</p>
+          <p className="mt-2 max-w-xs leading-6">Irish dance classes in Downpatrick and Saintfield, taught by Christopher Owens TCRG</p>
         </div>
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; {new Date().getFullYear()} Owens Academy. All rights reserved.</p>
-        </div>
+        <ul className="flex gap-6">
+          {links.map((link) => (
+            <li key={link.name}>
+              <a href={link.href} className="transition-colors duration-150 hover:text-stage-foreground">
+                {link.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="mx-auto mt-12 max-w-6xl px-6">
+        <p className="border-t border-white/8 pt-6 text-faint">&copy; {new Date().getFullYear()} Owens Academy</p>
       </div>
     </footer>
   );
